@@ -19,7 +19,7 @@ public class CarsController {
         this.header=header;
     }
     @GetMapping(value="/cars")
-    public String printWelcome(@RequestParam(value = "count", required=false, defaultValue = "5")Integer count, ModelMap model){
+    public String cars(@RequestParam(value = "count", required=false, defaultValue = "5")Integer count, ModelMap model){
         model.addAttribute("cars", carservice.getCars(count.intValue()));
         model.addAttribute("header", header.header());
         return "cars";

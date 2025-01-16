@@ -1,19 +1,30 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <title>Cars</title>
+    <style>table th, table td {padding: 5px;}</style>
 </head>
+
 <body>
-<div>
-    <h1 th:text="${header}"></h1>
-</div>
-<br>
-<div>
-    <th:block th:each="msg : ${cars}">
-        <h1 th:text="${msg.toStringFormatted()}"></h1>
-    </th:block>
-</div>
+<h1>th:each</h1>
+
+<table border="1">
+    <tr>
+        <th>brand</th>
+        <th>color</th>
+        <th>power/th>
+    </tr>
+
+    <tr th:each="lst : ${list}">
+        <td th:utext="${lst.brand}">brand</td>
+        <td th:utext="${lst.color}">color</td>
+        <td th:utext="${lst.power}">power</td>
+    </tr>
+
+</table>
+
 </body>
+
 </html>

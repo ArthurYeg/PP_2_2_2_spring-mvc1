@@ -8,7 +8,7 @@ import web.model.Car;
 import java.util.List;
 
 @Component
-public class CarserviceImpl implements CarService {
+public class CarserviceImpl extends CarService {
     private CarDao cardao;
     @Autowired
     public CarserviceImpl(CarDao cardao) {
