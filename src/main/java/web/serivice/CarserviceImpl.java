@@ -8,12 +8,18 @@ import web.model.Car;
 import java.util.List;
 
 @Component
-public class CarserviceImpl extends CarService {
+public class CarserviceImpl implements CarService {
     private CarDao cardao;
     @Autowired
     public CarserviceImpl(CarDao cardao) {
         this.cardao = cardao;
     }
+
+    @Override
+    public List<Car> carsCount(List<Car> list, int number) {
+        return List.of();
+    }
+
     @Override
     public List<Car> getCars(int  count){
         return cardao.getCars(count);

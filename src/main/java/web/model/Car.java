@@ -1,12 +1,10 @@
 package web.model;
 
-import org.springframework.stereotype.Controller;
-
-@Controller
 public class Car {
     private String series ;
     private String model;
     private int date;
+
     private static String header = "Series/" + ' ' + "Model/" + ' ' + "Date of production";
 
     public Car(String series, String model, int date) {
@@ -42,6 +40,14 @@ public class Car {
         this.date = date;
     }
 
+    public String toStringFormatted() {
+        return series + "/ " + model + "/ " + +date;
+    }
+
+    public String header() {
+        return header;
+    }
+
     @Override
     public String toString() {
         return "Car{" +
@@ -49,13 +55,5 @@ public class Car {
                 ", model='" + model + '\'' +
                 ", date=" + date +
                 '}';
-    }
-
-    public String toStringFormatted() {
-        return series + "/ " + model + "/ " + +date;
-    }
-
-    public String header() {
-        return header;
     }
 }
