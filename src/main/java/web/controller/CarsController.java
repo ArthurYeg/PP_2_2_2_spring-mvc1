@@ -20,7 +20,7 @@ public class CarsController {
         this.carDAO = carDAO;
     }
 
-    @GetMapping("/cars")
+    @GetMapping(value = "/cars")
     public String getCars(@RequestParam(value = "count", defaultValue = "5") int count, Model model) {
         List<Car> cars = carDAO.getCarList(count);
         model.addAttribute("cars", cars);
