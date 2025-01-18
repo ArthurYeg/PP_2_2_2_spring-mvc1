@@ -12,10 +12,11 @@ import java.util.List;
 
 @Controller
 public class CarsController {
-    private  CarDAO carDAO;
+
+    private final CarDAO carDAO;
 
     @Autowired
-    public void CarController(CarDAO carDAO) {
+    public CarsController(CarDAO carDAO) {
         this.carDAO = carDAO;
     }
 
@@ -23,6 +24,6 @@ public class CarsController {
     public String getCars(@RequestParam(value = "count", defaultValue = "5") int count, Model model) {
         List<Car> cars = carDAO.getCarList(count);
         model.addAttribute("cars", cars);
-        return "cars"; // Имя шаблона (например, cars.html)
+        return "cars";
     }
 }
