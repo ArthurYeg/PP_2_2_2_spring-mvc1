@@ -8,15 +8,12 @@ public class Car {
     private String model;
     private int date;
 
-    private static String header = "Series/" + ' ' + "Model/" + ' ' + "Date of production";
-
+    public Car() {
+    }
     public Car(String series, String model, int date) {
         this.series = series;
         this.model = model;
         this.date = date;
-    }
-
-    public Car() {
     }
 
     public String getSeries() {
@@ -43,15 +40,7 @@ public class Car {
         this.date = date;
     }
 
-    public String toStringFormatted() {
-        return series + "/ " + model + "/ " + +date;
-    }
-
-    public String header() {
-        return header;
-    }
-
-    @Override
+   @Override
     public String toString() {
         return "Car{" +
                 "series='" + series + '\'' +

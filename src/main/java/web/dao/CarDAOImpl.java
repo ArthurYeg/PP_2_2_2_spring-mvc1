@@ -21,7 +21,7 @@ public class CarDAOImpl implements CarDAO {
         return cars;
     }
     @Override
-    public List<Car> getCars(int  count){
+    public List<Car> getCarList(int  count){
         if (count >= 5) {
             return cars;
         }

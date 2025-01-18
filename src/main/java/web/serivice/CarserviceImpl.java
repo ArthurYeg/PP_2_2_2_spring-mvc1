@@ -16,13 +16,13 @@ public class CarserviceImpl implements CarService {
     }
 
     @Override
-    public List<Car> carsCount(List<Car> list, int number) {
+    public List<Car> getCarList(List<Car> list, int number) {
         return List.of();
     }
 
-    @Override
-    public List<Car> getCars(int  count){
-        return cardao.getCars(count);
-    }
 
+    @Override
+    public List<Car> getCarList(int count) {
+        return List.of();
+    }
 }

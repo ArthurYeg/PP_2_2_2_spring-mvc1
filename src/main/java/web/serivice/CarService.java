@@ -6,7 +6,7 @@ import web.model.Car;
 import java.util.List;
 
 public interface CarService {
- List<Car> carsCount(List<Car> list, int number);
+ List<Car> getCarList(List<Car> list, int number);
 
-List<Car> getCars(int i);
+ List<Car> getCarList(int count);
 }
