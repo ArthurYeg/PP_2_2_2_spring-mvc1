@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class CarDAOImpl implements CarDAO {
+public class CarDAOImpl extends CarDAO {
     private List<Car> cars = new ArrayList<>();
     public CarDAOImpl() {
         cars.add(new Car("Opel", "MANTA", 1991));

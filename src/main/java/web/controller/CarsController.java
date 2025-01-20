@@ -6,23 +6,23 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import web.dao.CarDAO;
 import web.model.Car;
+import web.serivice.CarService;
 
 import java.util.List;
 
 
 @Controller
 public class CarsController {
+    private final CarService carService;
 
-    private final CarDAO carDAO;
-
-    @Autowired
-    public CarsController(CarDAO carDAO) {
-        this.carDAO = carDAO;
+   @Autowired
+    public CarsController(CarService carService){
+       this.carService=carService;
     }
 
     @GetMapping(value = "/cars")
     public String getCars(@RequestParam(value = "count", defaultValue = "5") int count, Model model) {
-        List<Car> cars = carDAO.getCarList(count);
+        List<Car> cars = carService.getCarList(count);
         model.addAttribute("cars", cars);
         return "cars";
     }

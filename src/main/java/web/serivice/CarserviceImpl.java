@@ -1,13 +1,18 @@
 package web.serivice;
+import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 import web.dao.CarDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import web.model.Car;
+
+import java.util.stream.Collectors;
 import java.util.List;
 
-@Repository
+@Service
 public class CarserviceImpl implements CarService {
+
     private final CarDAO carDAO;
 
     @Autowired
@@ -16,13 +21,11 @@ public class CarserviceImpl implements CarService {
     }
 
     @Override
-    public List<Car> getCarList(List<Car> list, int number) {
-        return List.of();
-    }
-
-
-    @Override
     public List<Car> getCarList(int count) {
-        return List.of();
+
+       List<Car>allCars=carDAO.getAllCars();
+
+       return allCars.stream().limit(count).collect(Collectors.toList());
+
     }
 }
