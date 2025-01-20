@@ -12,7 +12,6 @@ import java.util.List;
 
 @Service
 public class CarserviceImpl implements CarService {
-
     private final CarDAO carDAO;
 
     @Autowired
@@ -22,8 +21,10 @@ public class CarserviceImpl implements CarService {
 
     @Override
     public List<Car> getCarList(int count) {
-       List<Car>allCars=carDAO.getAllCars();
-       return allCars.stream().limit(count).toList();
-
+        List<Car> allCars = carDAO.getAllCars();
+        if (count >= allCars.size()) {
+            return allCars;
+        }
+        return allCars.subList(0, count);
     }
 }
