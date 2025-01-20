@@ -1,31 +1,30 @@
 package web.dao;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import web.model.Car;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Repository
 public class CarDAOImpl implements CarDAO {
-    private List<Car> cars =new ArrayList<>();
-
-    public CarDAOImpl() {
-
-        cars.add(new Car("Opel", "MANTA", 1991));
-        cars.add(new Car("Chevrolet", "CAPRICE", 1987));
-        cars.add(new Car("Skoda", "1000 MB", 1964));
-        cars.add(new Car("Vaz", "Niva", 1976));
-        cars.add(new Car("FERRARI DINO", "246 GT", 1969));
+    private static List<Car> cars =new ArrayList<>();
+    static  {
+        cars.add(new Car(1,"MANTA", "Opel", 1991));
+        cars.add(new Car(2, "CAPRICE ", "Chevrolet", 1987));
+        cars.add(new Car(3, "1000 MB ", "Skoda", 1964));
+        cars.add(new Car(4, "Niva ", "Vaz", 1976));
+        cars.add(new Car(5, "246 GT ", "FERRARI", 1969));
     }
-
-    public List<Car> getCarList(int count) {
-        if (count >= cars.size()) {
-            return cars;
+    @Override
+    public List<Car> getCars(int count) {
+        List<Car> cars_edited=cars;
+        if (count >=5) {
+           return cars;
         }
-        return cars.subList(0, count);
+        return cars.stream().limit(count).collect(Collectors.toList());
+
     }
 
-    public List<Car> getAllCars() {
-        return new ArrayList<>(cars);
-    }
-}
+   }

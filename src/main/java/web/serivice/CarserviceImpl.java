@@ -12,19 +12,17 @@ import java.util.List;
 
 @Service
 public class CarserviceImpl implements CarService {
-    private final CarDAO carDAO;
-
     @Autowired
-    public CarserviceImpl(CarDAO carDAO) {
-        this.carDAO = carDAO;
-    }
+    private  CarDAO carDAO;
+
+//    @Autowired
+//    public CarserviceImpl(CarDAO carDAO) {
+//        this.carDAO = carDAO;
+//    }
 
     @Override
-    public List<Car> getCarList(int count) {
-        List<Car> allCars = carDAO.getAllCars();
-        if (count >= allCars.size()) {
-            return allCars;
-        }
-        return allCars.subList(0, count);
+    public List<Car> getCars(int count) {
+         return carDAO.getCars(count);
+
     }
 }
