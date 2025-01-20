@@ -13,7 +13,7 @@ import java.util.List;
 @Service
 public class CarserviceImpl implements CarService {
 
-    private CarDAO carDAO;
+    private final CarDAO carDAO;
 
     @Autowired
     public CarserviceImpl(CarDAO carDAO) {
@@ -23,7 +23,7 @@ public class CarserviceImpl implements CarService {
     @Override
     public List<Car> getCarList(int count) {
        List<Car>allCars=carDAO.getAllCars();
-       return allCars.stream().limit(count).collect(Collectors.toList());
+       return allCars.stream().limit(count).toList();
 
     }
 }

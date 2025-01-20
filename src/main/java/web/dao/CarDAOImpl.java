@@ -7,8 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class CarDAOImpl extends CarDAO {
+public class CarDAOImpl implements CarDAO {
     private List<Car> cars = new ArrayList<>();
+
     public CarDAOImpl() {
         cars.add(new Car("Opel", "MANTA", 1991));
         cars.add(new Car("Chevrolet", "CAPRICE", 1987));
@@ -20,11 +21,11 @@ public class CarDAOImpl extends CarDAO {
     public List<Car>getAllCars(){
         return cars;
     }
-    @Override
-    public List<Car> getCarList(int  count){
-        if (count >= 5) {
-            return cars;
-        }
-        return cars.subList(0,count);
-    }
+//    @Override
+//    public List<Car> getCarList(int  count){
+//        if (count >= 5) {
+//            return cars;
+//        }
+//        return cars.subList(0,count);
+//    }
 }
