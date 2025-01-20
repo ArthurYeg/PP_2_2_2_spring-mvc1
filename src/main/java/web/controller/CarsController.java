@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import web.dao.CarDAO;
 import web.model.Car;
 import web.serivice.CarService;
@@ -14,7 +15,7 @@ import java.util.List;
 import java.util.logging.Logger;
 
 
-@Controller
+@RestController
 public class CarsController {
     private final CarService carService;
 
@@ -25,10 +26,7 @@ public class CarsController {
     }
 
     @GetMapping( "/cars")
-    public String getCars(@RequestParam(value = "count", defaultValue = "5") int count, Model model) {
-
-//       List<Car> cars = carService.getCarList(count);
-//        model.addAttribute("cars", cars);
-        return "cars";
+    public List<Car> getCars(@RequestParam(defaultValue = "5") int count) {
+        return carService.getCarList(count);
     }
 }

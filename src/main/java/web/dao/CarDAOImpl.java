@@ -21,11 +21,4 @@ public class CarDAOImpl implements CarDAO {
     public List<Car>getAllCars(){
         return cars;
     }
-    @Override
-    public List<Car> getCarList(int  count){
-        if (count >= 5) {
-            return cars;
-        }
-        return cars.subList(0,count);
-    }
 }
