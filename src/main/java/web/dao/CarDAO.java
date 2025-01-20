@@ -10,4 +10,5 @@ import java.util.List;
 @Repository
 public interface CarDAO {
     List<Car> getAllCars();
+    List <Car> getCarList(int count);
 }

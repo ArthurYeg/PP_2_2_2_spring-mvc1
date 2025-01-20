@@ -23,7 +23,7 @@ public class CarserviceImpl implements CarService {
     @Override
     public List<Car> getCarList(int count) {
        List<Car>allCars=carDAO.getAllCars();
-       return allCars.stream().limit(count).toList();
+       return allCars.stream().limit(count).collect(Collectors.toUnmodifiableList());
 
     }
 }
