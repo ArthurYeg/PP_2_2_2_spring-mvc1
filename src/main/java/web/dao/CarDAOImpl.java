@@ -18,13 +18,7 @@ public class CarDAOImpl implements CarDAO {
         cars.add(new Car(5, "246 GT ", "FERRARI", 1969));
     }
     @Override
-    public List<Car> getCars(int count) {
-        List<Car> cars_edited=cars;
-        if (count >=5) {
+    public List<Car> getAllCars() {
            return cars;
-        }
-        return cars.stream().limit(count).collect(Collectors.toList());
-
     }
-
    }

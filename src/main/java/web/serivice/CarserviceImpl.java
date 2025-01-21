@@ -12,17 +12,17 @@ import java.util.List;
 
 @Service
 public class CarserviceImpl implements CarService {
-    @Autowired
-    private  CarDAO carDAO;
+    private final CarDAO carDAO;
 
-//    @Autowired
-//    public CarserviceImpl(CarDAO carDAO) {
-//        this.carDAO = carDAO;
-//    }
+    @Autowired
+    public CarserviceImpl(CarDAO carDAO) {
+        this.carDAO = carDAO;
+    }
 
     @Override
     public List<Car> getCars(int count) {
-         return carDAO.getCars(count);
+        List<Car> allCars = carDAO.getAllCars(); // Получаем все машины
+        return allCars.stream().limit(count).collect(Collectors.toList());
 
     }
 }
